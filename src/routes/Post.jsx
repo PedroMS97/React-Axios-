@@ -1,14 +1,14 @@
-import React from "react";
 import blogFetch from "../axios/config";
 
 import { useState, useEffect } from "react";
+
 import { useParams } from "react-router-dom";
 
 import "./Post.css";
 
 const Post = () => {
   const { id } = useParams();
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState([]);
 
   const getPost = async () => {
     try {
@@ -20,11 +20,12 @@ const Post = () => {
     } catch (error) {
       console.log(error);
     }
-
-    useEffect(() => {
-      getPost();
-    }, []);
   };
+
+  useEffect(() => {
+    getPost();
+  }, []);
+
   return (
     <div className="post-container">
       {!post.title ? (
