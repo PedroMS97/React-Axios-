@@ -1,7 +1,5 @@
 import blogFetch from "../axios/config";
-
 import { useState, useEffect } from "react";
-
 import { useParams } from "react-router-dom";
 
 import "./Post.css";
